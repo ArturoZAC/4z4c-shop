@@ -1,3 +1,5 @@
+export { SideBar } from "./ui/sidebar/SideBar";
+
 export { PageNotFound } from "./ui/not-found/PageNotFound";
 export { ProductGrid } from "./products/product-grid/ProductGrid";
 export { ProductGridItem } from "./products/product-grid/ProductGridItem";
