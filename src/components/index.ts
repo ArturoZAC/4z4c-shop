@@ -1,3 +1,7 @@
+export { Footer } from "./ui/footer/Footer";
+
+export { ProductMobileSlideShow } from "./product/slideshow/ProductMobileSlideShow";
+
 export { ProductSlideShow } from "./product/slideshow/ProductSlideShow";
 
 export { QuantitySelector } from "./product/quantity-selector/QuantitySelector";
