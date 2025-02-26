@@ -1,5 +1,6 @@
 export { Footer } from "./ui/footer/Footer";
 
+
 export { ProductMobileSlideShow } from "./product/slideshow/ProductMobileSlideShow";
 
 export { ProductSlideShow } from "./product/slideshow/ProductSlideShow";
@@ -7,6 +8,7 @@ export { ProductSlideShow } from "./product/slideshow/ProductSlideShow";
 export { QuantitySelector } from "./product/quantity-selector/QuantitySelector";
 export { SizeSelector } from "./product/size-selector/SizeSelector";
 
+export * from './ui/pagination/Pagination';
 export { SideBar } from "./ui/sidebar/SideBar";
 export { PageNotFound } from "./ui/not-found/PageNotFound";
 export { ProductGrid } from "./products/product-grid/ProductGrid";
