@@ -8,6 +8,7 @@ export { ProductSlideShow } from "./product/slideshow/ProductSlideShow";
 export { QuantitySelector } from "./product/quantity-selector/QuantitySelector";
 export { SizeSelector } from "./product/size-selector/SizeSelector";
 
+export * from './provider/Provider'
 export * from './product/stock-label/StockLabel'
 export * from './ui/pagination/Pagination';
 export { SideBar } from "./ui/sidebar/SideBar";

@@ -2,7 +2,7 @@
 import { authenticate } from "@/action";
 import clsx from "clsx";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { IoInformationOutline } from "react-icons/io5";
@@ -10,13 +10,20 @@ import { IoInformationOutline } from "react-icons/io5";
 export const LoginForm = () => {
 
   const [ state, dispatch ] = useActionState( authenticate, undefined );
-  const router = useRouter();
+  // const router = useRouter();
+  const searchParams = useSearchParams(); // Obtén los query parameters
+
+  // Obtén el valor de `redirectTo` desde la URL
+  const redirectTo = searchParams.get("redirectTo") || "/";
+
+
 
   useEffect(() => {
     if( state === 'Success') {
-      router.replace('/')
+      // router.replace('/')
+      window.location.replace(redirectTo)
     }
-  }, [ state ]);
+  }, [ state , redirectTo ]);
   
 
   return (
