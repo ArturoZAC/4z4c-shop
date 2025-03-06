@@ -6,7 +6,7 @@ import { ProductsInCart } from "./ui/ProductsInCart";
 import { OrderSummary } from "./ui/OrderSummary";
 import { useEffect, useState } from "react";
 import { useCartStore } from "@/store";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const getTotalItems = useCartStore( state => state.getTotalItems());
