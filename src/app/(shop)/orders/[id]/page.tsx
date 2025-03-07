@@ -5,6 +5,8 @@ import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
 import { IoCardOutline } from "react-icons/io5";
 import clsx from "clsx";
+import { getOrderById } from "@/action";
+import { redirect } from "next/navigation";
 
 const productsInCart = [
   initialData.products[0],
@@ -20,10 +22,19 @@ export default async function OrderPage({params} : Props) {
 
   const {id} = await params;
 
+  const { ok, order } = await getOrderById(id);
+
+  if ( !ok ){
+    redirect('/');
+  }
+
+  // console.log(JSON.stringify(order, null, 2));
+  
+
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
       <div className="flex flex-col w-[1000px]">
-        <Title title={`Orden #${id}`}/>
+        <Title title={`Orden #${id.split('-').at(-1)}`}/>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 
