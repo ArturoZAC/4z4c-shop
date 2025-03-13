@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: Props) {
           { product.title }
         </h1>
 
-        <p className="text-lg mb-5"> { product.price } </p>
+        <p className="text-lg mb-5"> ${ product.price } </p>
         
         <AddToCart product={ product } />
 

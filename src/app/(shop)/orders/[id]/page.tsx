@@ -73,9 +73,6 @@ export default async function OrderPage({params} : Props) {
 
             <div className="w-full h-0.5 rounded bg-gray-200 mb-10" />
 
-
-
-
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
 
             <div className="grid grid-cols-2">

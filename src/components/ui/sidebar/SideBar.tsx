@@ -1,6 +1,6 @@
 'use client';
 import { logout } from '@/action';
-import { useUIStore } from '@/store';
+import { useAddressStore, useUIStore } from '@/store';
 import clsx from 'clsx';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -10,12 +10,14 @@ export const SideBar = () => {
 
   const isSideMenuOpen = useUIStore(state => state.isSideMenuOpen);
   const closeMenu = useUIStore(state => state.closeSideMenu);
+  const clearAddress = useAddressStore( state => state.clearAddress );
 
   const { data: session  } = useSession();
   const isAuthenticated = !!session?.user;
   const isAdmin = session?.user.role === 'admin';
 
   const onLogout = async () => {
+    clearAddress();
     await logout();
     window.location.reload();
     closeMenu();
@@ -140,7 +142,8 @@ export const SideBar = () => {
 
 
               <Link
-                href='/'
+                href='/admin/orders'
+                onClick={() => closeMenu()}
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'
               >
                 <IoTicketOutline size={30} />
@@ -148,7 +151,8 @@ export const SideBar = () => {
               </Link>
 
               <Link
-                href='/'
+                href='/admin/users'
+                onClick={() => closeMenu()}
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'
               >
                 <IoPeopleOutline size={30} />

@@ -17,6 +17,7 @@ interface State {
 
   //*Methods
   setAddress: (address: State['address']) => void;
+  clearAddress: () => void;
 
 }
 
@@ -36,8 +37,19 @@ export const useAddressStore = create<State>()(
       },
       setAddress: (address: State['address']) => {
         set({ address: address })
+      },
+      clearAddress: () => {
+        set({ address: {
+          firstName: "",
+          lastName: "",
+          address: "",
+          address2: "",
+          postalCode: "",
+          city: "",
+          country: "",
+          phone: ""
+        } })
       }
-
       //*
     }),
     //*Inicio del store en local storage
