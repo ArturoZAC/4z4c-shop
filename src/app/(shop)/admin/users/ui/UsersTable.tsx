@@ -42,8 +42,6 @@ export const UsersTable = ({ users }: Props) => {
                 <select
                   value={ user.role }
                   onChange={ (e) => {
-                    console.log(user.id);
-                    console.log(e.target.value);
                     changeUserRole(user.id, e.target.value )
                   }}
                   className="text-sm text-gray-900 w-full p-2"
