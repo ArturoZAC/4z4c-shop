@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 
 interface Props {
-  product: Product & { productImage?: ProductImage[] };
+  product: Product & { ProductImage?: ProductImage[]};
   categories: CategoryFromDB[];
 }
 
@@ -25,6 +25,7 @@ interface FormInputs {
 
 export const ProductForm = ({ product, categories = [] }: Props) => {
 
+  
   const { handleSubmit, register, formState: { isValid } } = useForm<FormInputs>({
     defaultValues: {
       ...product,
@@ -43,12 +44,12 @@ export const ProductForm = ({ product, categories = [] }: Props) => {
       <div className="w-full">
         <div className="flex flex-col mb-2">
           <span>Título</span>
-          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('title'), { required: true}} />
+          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('title', { required: true})} />
         </div>
 
         <div className="flex flex-col mb-2">
           <span>Slug</span>
-          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('slug'), { required: true}}/>
+          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('slug', { required: true})}/>
         </div>
 
         <div className="flex flex-col mb-2">
@@ -56,23 +57,23 @@ export const ProductForm = ({ product, categories = [] }: Props) => {
           <textarea
             rows={5}
             className="p-2 border rounded-md bg-gray-200"
-            {...register('description'), { required: true}}
+            {...register('description', { required: true})}
           ></textarea>
         </div>
 
         <div className="flex flex-col mb-2">
           <span>Price</span>
-          <input type="number" className="p-2 border rounded-md bg-gray-200" {...register('price'), { required: true, min: 0}} />
+          <input type="number" className="p-2 border rounded-md bg-gray-200" {...register('price', { required: true, min: 0})} />
         </div>
 
         <div className="flex flex-col mb-2">
           <span>Tags</span>
-          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('tags'), { required: true}}/>
+          <input type="text" className="p-2 border rounded-md bg-gray-200" {...register('tags', { required: true})}/>
         </div>
 
         <div className="flex flex-col mb-2">
           <span>Gender</span>
-          <select className="p-2 border rounded-md bg-gray-200" {...register('gender'), { required: true}}>
+          <select className="p-2 border rounded-md bg-gray-200" {...register('gender', { required: true})}>
             <option value="">[Seleccione]</option>
             <option value="men">Men</option>
             <option value="women">Women</option>
@@ -83,7 +84,7 @@ export const ProductForm = ({ product, categories = [] }: Props) => {
 
         <div className="flex flex-col mb-2">
           <span>Categoria</span>
-          <select className="p-2 border rounded-md bg-gray-200" {...register('categoryId'), { required: true}}>
+          <select className="p-2 border rounded-md bg-gray-200" {...register('categoryId', { required: true})}>
             <option value="">[Seleccione]</option>
             {
               categories.map( (category) => (
@@ -132,17 +133,20 @@ export const ProductForm = ({ product, categories = [] }: Props) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {
-              product.productImage?.map( image => (
+              product.ProductImage?.map( image => (
                 <div key={ image.id }>
                   <Image 
                     alt={ product.title ?? ''}
                     src={ `/products/${ image.url }`}
                     width={ 300 }
                     height={ 300 }
-                    className="rounded shadow-sm"
+                    className="rounded shadow-md"
                   />
 
-                  <button>
+                  <button 
+                    type="button"
+                    onClick={() => console.log( image.id, image.url)}
+                    className="btn-danger w-full rounded-b-xl">
                     Eliminar
                   </button>
                 </div>
