@@ -13,7 +13,8 @@ export * from './order/get-order-by-id';
 export * from './order/get-orders-by-user';
 export * from './payments/set-transaction-id';
 export * from './payments/paypal-check-payment';
-export * from './order/get-paginated-orders'
-export * from './user/get-paginated-users'
-export * from './user/change-user-role'
-export * from './product/get-category'
+export * from './order/get-paginated-orders';
+export * from './user/get-paginated-users';
+export * from './user/change-user-role';
+export * from './product/get-category';
+export * from './product/create-update-product';

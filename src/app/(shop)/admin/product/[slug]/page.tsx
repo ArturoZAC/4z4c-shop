@@ -14,7 +14,7 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug( slug );
   const categories = await getCategory();
 
-  if(!product ) {
+  if( !product && slug !== 'new' ) {
     redirect('/admin/products');
   }
 
@@ -25,7 +25,7 @@ export default async function ProductPage({ params }: Props) {
       <Title title={ title }  />
 
       <ProductForm 
-        product={ product } 
+        product={ product ?? {} } 
         categories={ categories }
       />
     </>
