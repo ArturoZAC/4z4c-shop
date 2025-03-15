@@ -18,3 +18,4 @@ export * from './user/get-paginated-users';
 export * from './user/change-user-role';
 export * from './product/get-category';
 export * from './product/create-update-product';
+export * from './product/delete-product-image';
