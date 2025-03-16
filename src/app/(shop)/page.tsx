@@ -13,7 +13,7 @@ export default async function Home({ searchParams }: Props) {
   const { page: pageOff } = await searchParams;
   const page =  pageOff ?  +pageOff : 1;
 
-  const { products, totalPages, currentPage } = await getPaginatedProductsWithImages({page});
+  const { products, totalPages } = await getPaginatedProductsWithImages({page});
 
   if( products.length === 0 ) redirect('/');
 

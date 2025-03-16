@@ -4,7 +4,6 @@ import { createUpdateProduct, deleteProductImage } from "@/action";
 import { ProductImage } from "@/components";
 import { CategoryFromDB, Product, ProductImage as ProductWithImage } from "@/interfaces";
 import clsx from "clsx";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
