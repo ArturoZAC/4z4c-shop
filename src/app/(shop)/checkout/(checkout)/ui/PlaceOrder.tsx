@@ -64,7 +64,7 @@ export const PlaceOrder = () => {
       // Si la orden no se creó correctamente
       if (!resp.ok) {
         setIsPlacingOrder(false);
-        setErrorMessage(resp.message);
+        setErrorMessage(resp.message as any);
         return;
       }
   

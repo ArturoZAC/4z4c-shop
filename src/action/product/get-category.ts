@@ -15,7 +15,7 @@ export const getCategory = async() => {
     return categoryArray;
     
   } catch (error) {
-    throw new Error('Error getting category');
+    throw new Error(`Error getting category ${error}`);
   }
 
 };

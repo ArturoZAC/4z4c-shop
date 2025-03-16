@@ -22,7 +22,7 @@ export default function CartPage() {
       } else {
         setIsLoading(false); 
       }
-    } catch (error) {
+    } catch {
       setIsLoading(false);
     }
   }, [getTotalItems, router]);

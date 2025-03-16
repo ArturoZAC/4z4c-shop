@@ -37,7 +37,7 @@ export const createUpdateProduct = async( formData: FormData) => {
 
   try {
 
-    const prismaTx = await prisma.$transaction( async(tx) => {
+    const prismaTx = await prisma.$transaction( async() => {
   
       let product: Product;
       const tagsArray = rest.tags.split(',').map( tag => tag.trim().toLowerCase());
@@ -104,7 +104,7 @@ export const createUpdateProduct = async( formData: FormData) => {
   } catch (error) {
     return {
       ok: false,
-      message: 'Revisar los logs no se pudo actualizar/crear'
+      message: `Revisar los logs no se pudo actualizar/crear ${error}`
     }
   }
 };

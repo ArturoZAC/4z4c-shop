@@ -16,7 +16,7 @@ export async function authenticate(
     return 'Success';
 
   } catch (error) {
-    return 'CredentialsSignin';
+    return `CredentialsSignin + ${error}`;
   }
 }
 
@@ -33,7 +33,7 @@ export const login = async( email: string, password: string ) => {
 
    return {
     ok: false,
-    message: 'No se pudo iniciar sesión'  
+    message: `No se pudo iniciar sesión ${error}`  
    } 
    
   }

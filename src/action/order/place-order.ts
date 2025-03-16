@@ -126,10 +126,10 @@ export const placeOrder = async( productIds: ProductToOrder[], address: Address)
       prismaTx: prismaTx
     }
 
-  } catch (error: any) {
+  } catch (error) {
     return {
       ok: false,
-      message: error.message,
+      message: error,
     }
   }
 };

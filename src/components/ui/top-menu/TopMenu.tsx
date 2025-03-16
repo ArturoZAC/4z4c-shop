@@ -4,7 +4,7 @@ import { titleFont } from "@/config/fonts"
 import { useCartStore, useUIStore } from "@/store";
 import Link from "next/link"
 import { useEffect, useState } from "react";
-import { IoCartOutline, IoSearchOutline } from "react-icons/io5"
+import { IoCartOutline } from "react-icons/io5"
 
 export const TopMenu = () => {
 
